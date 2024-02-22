@@ -6,46 +6,68 @@
 
 body {
   background-color: #000000;
-  background-image: url("../media/globe_light.jpg");
+  background-image: url("../media/globe_west.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
   font-family: "Anta", sans-serif;
   color: aliceblue;
-  background-position-y: 113px;
+  background-position-y: 213px;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 57px;
   margin: 35px auto 0;
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
+h2 {
+  margin: auto;
+  text-align: center;
+}
+
 hr {
   background-color: #f4dfc8;
-  border: none;
   border-radius: 10px;
-  bottom: 20px;
-  height: 18px;
-  margin: auto;
-  position: relative;
+  margin: 10px auto;
   width: 265px;
 }
 
-select {
-  height: 30px;
+section {
+  background-color: rgba(250, 250, 250, 0.3);
+  border-radius: 10px;
+  padding: 10px 15px;
 }
 
-.saying {
-  bottom: 20px;
-  color: #af2655;
-  font-size: 20px;
-  font-weight: 100;
-  left: 85px;
+select {
+  background-color: rgba(250, 250, 250, 0.3);
+  border: none;
+  border-radius: 7px;
+  color: aliceblue;
+  display: block;
+  height: 27px;
+  width: 100%;
   margin: auto;
-  position: relative;
-  text-align: center;
-  transform: rotate(-9deg);
+}
+.current-time {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.time-block {
+  display: grid;
+  grid-gap: 27px;
+  grid-template-columns: 290px 357px;
+  justify-content: center;
+  margin: 50px auto;
+  width: 800px;
+}
+.world-cities {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+#city-select {
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
