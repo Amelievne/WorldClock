@@ -14,7 +14,9 @@ body {
   color: aliceblue;
   background-position-y: 213px;
 }
-
+footer {
+  text-align: center;
+}
 h1 {
   font-size: 57px;
   margin: 35px auto 0;
@@ -27,12 +29,16 @@ h2 {
   margin: auto;
   text-align: center;
 }
+h3 {
+  margin: 0;
+  font-size: 25px;
+}
 
 hr {
   background-color: #f4dfc8;
   border-radius: 10px;
   margin: 10px auto;
-  width: 265px;
+  width: 95%;
 }
 
 section {
@@ -47,18 +53,50 @@ select {
   border-radius: 7px;
   color: aliceblue;
   display: block;
+  font-family: "Anta", sans-serif;
   height: 27px;
   width: 100%;
   margin: auto;
 }
+.ap-pm {
+  font-size: 17px;
+}
+.city-time {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  margin: 13px 7px;
+}
+.chosen-city {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  height: 112.75px;
+}
+.chosen-city .city-time {
+  margin: 21px 0;
+}
 .current-time {
   grid-row-start: 2;
   grid-row-end: 3;
+  height: 154.5px;
+}
+.current-time .city-time {
+  margin: 25px 0;
+  grid-template-columns: 47% 53%;
+}
+.hour {
+  font-size: 43px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  text-align: center;
+  align-self: center;
 }
 .time-block {
   display: grid;
-  grid-gap: 27px;
-  grid-template-columns: 290px 357px;
+  grid-gap: 23px;
+  grid-template-columns: 367px 367px;
   justify-content: center;
   margin: 50px auto;
   width: 800px;
@@ -66,8 +104,5 @@ select {
 .world-cities {
   grid-row-start: 1;
   grid-row-end: 3;
-}
-#city-select {
-  grid-row-start: 1;
-  grid-row-end: 2;
+  height: 318px;
 }
