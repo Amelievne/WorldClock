@@ -58,7 +58,7 @@ select {
   width: 100%;
   margin: auto;
 }
-.ap-pm {
+.am-pm {
   font-size: 17px;
 }
 .city-time {
@@ -84,7 +84,7 @@ select {
   margin: 25px 0;
   grid-template-columns: 47% 53%;
 }
-.hour {
+.full-time {
   font-size: 43px;
   grid-column-start: 2;
   grid-column-end: 3;
@@ -96,7 +96,7 @@ select {
 .time-block {
   display: grid;
   grid-gap: 23px;
-  grid-template-columns: 367px 367px;
+  grid-template-columns: 423px 423px;
   justify-content: center;
   margin: 50px auto;
   width: 800px;
