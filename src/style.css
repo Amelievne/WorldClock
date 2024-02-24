@@ -66,6 +66,7 @@ select {
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
   margin: 13px 7px;
+  height: 52px;
 }
 .chosen-city {
   grid-row-start: 1;
@@ -78,7 +79,7 @@ select {
 .current-time {
   grid-row-start: 2;
   grid-row-end: 3;
-  height: 154.5px;
+  height: 162.5px;
 }
 .current-time .city-time {
   margin: 25px 0;
@@ -90,13 +91,13 @@ select {
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 3;
-  text-align: center;
+  text-align: right;
   align-self: center;
 }
 .time-block {
   display: grid;
   grid-gap: 23px;
-  grid-template-columns: 423px 423px;
+  grid-template-columns: 433px 433px;
   justify-content: center;
   margin: 50px auto;
   width: 800px;
