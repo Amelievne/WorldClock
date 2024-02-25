@@ -68,25 +68,24 @@ select {
 }
 .city-time {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 40% 60%;
   grid-template-rows: 50% 50%;
   margin: 13px 7px;
   height: 52px;
 }
 .chosen-city {
-  grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 .chosen-city .city-time {
   margin: 32px 0 18px;
 }
 .current-time {
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 .current-time .city-time {
   margin: 25px 0 18px;
-  grid-template-columns: 40% 60%;
 }
 .full-time {
   font-size: 43px;

@@ -65,19 +65,19 @@ function updateCity(event) {
 function updateWorldList() {
   let tokyoElem = document.querySelector("#tokyo");
   let tokyoTz = "Asia/Tokyo";
-  updateTimeMm(tokyoTz, tokyoElem);
+  updateTimeSs(tokyoTz, tokyoElem);
 
   let mexicoElem = document.querySelector("#mexico");
   let mexicoTz = "America/Cancun";
-  updateTimeMm(mexicoTz, mexicoElem);
+  updateTimeSs(mexicoTz, mexicoElem);
 
   let melbourneElem = document.querySelector("#melbourne");
   let melbourneTz = "Australia/Melbourne";
-  updateTimeMm(melbourneTz, melbourneElem);
+  updateTimeSs(melbourneTz, melbourneElem);
 
   let saopauloElem = document.querySelector("#saopaulo");
   let saopauloTz = "America/Sao_Paulo";
-  updateTimeMm(saopauloTz, saopauloElem);
+  updateTimeSs(saopauloTz, saopauloElem);
 }
 
 updateWorldList();
