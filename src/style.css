@@ -3,6 +3,10 @@
   font-weight: 400;
   font-style: normal;
 }
+a {
+  text-decoration: none;
+  color: #0000ff;
+}
 
 body {
   background-color: #000000;
