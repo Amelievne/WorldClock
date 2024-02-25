@@ -75,27 +75,17 @@ function updateCity(event) {
   let cityName = cityTimeZone.replace("_", " ").split("/");
   cityName = cityName[cityName.length - 1];
 
-  let cityListElem = document.querySelector(".world-cities");
+  let cityListElem = document.querySelector(".chosen-city-time");
   cityListElem.innerHTML = `
   <div class="city-time">
           <h3 class="city">${cityName}</h3>
           <div class="date">${chosenCityTime.format("MMMM Do YYYY")}</div>
           <div class="full-time">
-            <span class="time">${chosenCityTime.format("hh:mm")} </span>
+            <span class="time">${chosenCityTime.format("hh:mm:ss")} </span>
             <span class="am-pm">${chosenCityTime.format("A")}</span>
           </div>
         </div>
         `;
-
-  let chosenCityElem = document.querySelector(".chosen-city ");
-  let chosenCityNameElem = chosenCityElem.querySelector(".city");
-  let chosenCityDateElem = chosenCityElem.querySelector(".date");
-  let chosenCityTimeElem = chosenCityElem.querySelector(".time");
-  let chosenCityAmPmElem = chosenCityElem.querySelector(".am-pm");
-  chosenCityNameElem.innerHTML = cityName;
-  chosenCityDateElem.innerHTML = chosenCityTime.format("MMMM Do YYYY");
-  chosenCityTimeElem.innerHTML = chosenCityTime.format("hh:mm");
-  chosenCityAmPmElem.innerHTML = chosenCityTime.format("A");
 }
 
 updateTime();

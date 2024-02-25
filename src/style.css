@@ -75,19 +75,18 @@ select {
 .chosen-city {
   grid-row-start: 1;
   grid-row-end: 2;
-  height: 112.75px;
 }
 .chosen-city .city-time {
-  margin: 21px 0;
+  margin: 25px 0;
+  grid-template-columns: 40% 60%;
 }
 .current-time {
   grid-row-start: 2;
   grid-row-end: 3;
-  height: 162.5px;
 }
 .current-time .city-time {
   margin: 25px 0;
-  grid-template-columns: 47% 53%;
+  grid-template-columns: 40% 60%;
 }
 .full-time {
   font-size: 43px;
@@ -101,13 +100,13 @@ select {
 .time-block {
   display: grid;
   grid-gap: 23px;
-  grid-template-columns: 433px 433px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
   justify-content: center;
   margin: 50px auto;
-  width: 800px;
+  width: 874px;
 }
 .world-cities {
   grid-row-start: 1;
   grid-row-end: 3;
-  height: 318px;
 }
