@@ -77,7 +77,7 @@ select {
   grid-row-end: 2;
 }
 .chosen-city .city-time {
-  margin: 25px 0;
+  margin: 32px 0 18px;
   grid-template-columns: 40% 60%;
 }
 .current-time {
@@ -85,7 +85,7 @@ select {
   grid-row-end: 3;
 }
 .current-time .city-time {
-  margin: 25px 0;
+  margin: 25px 0 18px;
   grid-template-columns: 40% 60%;
 }
 .full-time {
@@ -98,10 +98,12 @@ select {
   align-self: center;
 }
 .time-block {
+  align-content: center;
   display: grid;
   grid-gap: 23px;
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
+  height: 313px;
   justify-content: center;
   margin: 50px auto;
   width: 874px;
