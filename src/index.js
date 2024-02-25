@@ -57,9 +57,13 @@ function updateCurrentTime() {
   let currentCityDateElem = currentCityElem.querySelector(".date");
   let currentCityTimeElem = currentCityElem.querySelector(".time");
   let currentCityAmPmElem = currentCityElem.querySelector(".am-pm");
+  let currentCityNameElem = currentCityElem.querySelector(".city");
+  let currentCityTz = moment.tz.guess();
+  let currentCityTime = moment.tz(currentCityTz);
 
-  let currentCityTime = moment().tz("Mexico/General");
-
+  let currentCityName = currentCityTz.replace("_", " ").split("/");
+  currentCityName = currentCityName[currentCityName.length - 1];
+  currentCityNameElem.innerHTML = currentCityName;
   currentCityDateElem.innerHTML = currentCityTime.format("MMMM Do YYYY");
   currentCityTimeElem.innerHTML = currentCityTime.format("hh:mm:ss");
   currentCityAmPmElem.innerHTML = currentCityTime.format("A");
