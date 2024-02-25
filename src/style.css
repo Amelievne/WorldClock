@@ -78,7 +78,6 @@ select {
 }
 .chosen-city .city-time {
   margin: 32px 0 18px;
-  grid-template-columns: 40% 60%;
 }
 .current-time {
   grid-row-start: 2;

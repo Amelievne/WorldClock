@@ -1,4 +1,4 @@
-function updateTime() {
+function updateWorldList() {
   let tokyoElem = document.querySelector("#tokyo");
   if (tokyoElem) {
     let tokyoDateElem = tokyoElem.querySelector(".date");
@@ -69,28 +69,31 @@ function updateCurrentTime() {
   currentCityAmPmElem.innerHTML = currentCityTime.format("A");
 }
 
-function updateCity(event) {
-  let cityTimeZone = event.target.value;
-  let chosenCityTime = moment().tz(cityTimeZone);
-  let cityName = cityTimeZone.replace("_", " ").split("/");
+function updateTime(timezone, section) {
+  let chosenCityTime = moment().tz(timezone);
+  let cityName = timezone.replace("_", " ").split("/");
   cityName = cityName[cityName.length - 1];
-
-  let cityListElem = document.querySelector(".chosen-city-time");
-  cityListElem.innerHTML = `
+  section.innerHTML = `
   <div class="city-time">
           <h3 class="city">${cityName}</h3>
           <div class="date">${chosenCityTime.format("MMMM Do YYYY")}</div>
           <div class="full-time">
-            <span class="time">${chosenCityTime.format("hh:mm:ss")} </span>
+            <span class="time">${chosenCityTime.format("hh:mm")} </span>
             <span class="am-pm">${chosenCityTime.format("A")}</span>
           </div>
         </div>
         `;
 }
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityListElem = document.querySelector(".chosen-city-time");
 
-updateTime();
+  updateTime(cityTimeZone, cityListElem);
+}
+
+updateWorldList();
 updateCurrentTime();
-setInterval(updateTime, 1000);
+setInterval(updateWorldList, 1000);
 setInterval(updateCurrentTime, 1000);
 
 let citiesSelectElem = document.querySelector("#city-select");
