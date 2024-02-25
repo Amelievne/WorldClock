@@ -22,9 +22,10 @@ footer {
   text-align: center;
 }
 h1 {
-  font-size: 57px;
+  font-size: 63px;
   margin: 35px auto 0;
   text-align: center;
+  text-shadow: 2px 2px 10px #0000ff;
   position: relative;
   z-index: 1;
 }
@@ -97,17 +98,21 @@ select {
   align-self: center;
 }
 .time-block {
-  align-content: center;
   display: grid;
   grid-gap: 23px;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
-  height: 313px;
   justify-content: center;
-  margin: 50px auto;
+  margin: 37px auto 50px;
   width: 874px;
 }
 .world-cities {
   grid-row-start: 1;
   grid-row-end: 3;
+  height: 313px;
+}
+#historic-search {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
 }

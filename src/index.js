@@ -1,75 +1,4 @@
-function updateWorldList() {
-  let tokyoElem = document.querySelector("#tokyo");
-  if (tokyoElem) {
-    let tokyoDateElem = tokyoElem.querySelector(".date");
-    let tokyoTimeElem = tokyoElem.querySelector(".time");
-    let tokyoAmPmElem = tokyoElem.querySelector(".am-pm");
-
-    let tokyoTime = moment().tz("Asia/Tokyo");
-
-    tokyoDateElem.innerHTML = tokyoTime.format("MMMM Do YYYY");
-    tokyoTimeElem.innerHTML = tokyoTime.format("hh:mm");
-    tokyoAmPmElem.innerHTML = tokyoTime.format("A");
-  }
-
-  let mexicoElem = document.querySelector("#mexico");
-  if (mexicoElem) {
-    let mexicoDateElem = mexicoElem.querySelector(".date");
-    let mexicoTimeElem = mexicoElem.querySelector(".time");
-    let mexicoAmPmElem = mexicoElem.querySelector(".am-pm");
-
-    let mexicoTime = moment().tz("Mexico/General");
-
-    mexicoDateElem.innerHTML = mexicoTime.format("MMMM Do YYYY");
-    mexicoTimeElem.innerHTML = mexicoTime.format("hh:mm");
-    mexicoAmPmElem.innerHTML = mexicoTime.format("A");
-  }
-
-  let melbourneElem = document.querySelector("#melbourne");
-  if (melbourneElem) {
-    let melbourneDateElem = melbourneElem.querySelector(".date");
-    let melbourneTimeElem = melbourneElem.querySelector(".time");
-    let melbourneAmPmElem = melbourneElem.querySelector(".am-pm");
-
-    let melbourneTime = moment().tz("Australia/Melbourne");
-
-    melbourneDateElem.innerHTML = melbourneTime.format("MMMM Do YYYY");
-    melbourneTimeElem.innerHTML = melbourneTime.format("hh:mm");
-    melbourneAmPmElem.innerHTML = melbourneTime.format("A");
-  }
-
-  let saopauloElem = document.querySelector("#saopaulo");
-  if (saopauloElem) {
-    let saopauloDateElem = saopauloElem.querySelector(".date");
-    let saopauloTimeElem = saopauloElem.querySelector(".time");
-    let saopauloAmPmElem = saopauloElem.querySelector(".am-pm");
-
-    let saopauloTime = moment().tz("Australia/Melbourne");
-
-    saopauloDateElem.innerHTML = saopauloTime.format("MMMM Do YYYY");
-    saopauloTimeElem.innerHTML = saopauloTime.format("hh:mm");
-    saopauloAmPmElem.innerHTML = saopauloTime.format("A");
-  }
-}
-
-function updateCurrentTime() {
-  let currentCityElem = document.querySelector(".current-time ");
-  let currentCityDateElem = currentCityElem.querySelector(".date");
-  let currentCityTimeElem = currentCityElem.querySelector(".time");
-  let currentCityAmPmElem = currentCityElem.querySelector(".am-pm");
-  let currentCityNameElem = currentCityElem.querySelector(".city");
-  let currentCityTz = moment.tz.guess();
-  let currentCityTime = moment.tz(currentCityTz);
-
-  let currentCityName = currentCityTz.replace("_", " ").split("/");
-  currentCityName = currentCityName[currentCityName.length - 1];
-  currentCityNameElem.innerHTML = currentCityName;
-  currentCityDateElem.innerHTML = currentCityTime.format("MMMM Do YYYY");
-  currentCityTimeElem.innerHTML = currentCityTime.format("hh:mm:ss");
-  currentCityAmPmElem.innerHTML = currentCityTime.format("A");
-}
-
-function updateTime(timezone, section) {
+function updateTimeMm(timezone, section) {
   let chosenCityTime = moment().tz(timezone);
   let cityName = timezone.replace("_", " ").split("/");
   cityName = cityName[cityName.length - 1];
@@ -84,18 +13,79 @@ function updateTime(timezone, section) {
         </div>
         `;
 }
+function updateTimeSs(timezone, section) {
+  let chosenCityTime = moment().tz(timezone);
+  let cityName = timezone.replace("_", " ").split("/");
+  cityName = cityName[cityName.length - 1];
+  section.innerHTML = `
+  <div class="city-time">
+          <h3 class="city">${cityName}</h3>
+          <div class="date">${chosenCityTime.format("MMMM Do YYYY")}</div>
+          <div class="full-time">
+            <span class="time">${chosenCityTime.format("hh:mm:ss")} </span>
+            <span class="am-pm">${chosenCityTime.format("A")}</span>
+          </div>
+        </div>
+        `;
+}
+function updateHistoric(timezone) {
+  let historicElem = document.querySelector("#historic-search");
+
+  let chosenCityTime = moment().tz(timezone);
+  let cityName = timezone.replace("_", " ").split("/");
+  cityName = cityName[cityName.length - 1];
+
+  historicList += `
+  <div class="city-time">
+          <h3 class="city">${cityName}</h3>
+          <div class="date">${chosenCityTime.format("MMMM Do YYYY")}</div>
+          <div class="full-time">
+            <span class="time">${chosenCityTime.format("hh:mm")} </span>
+            <span class="am-pm">${chosenCityTime.format("A")}</span>
+          </div>
+        </div>
+        `;
+
+  historicElem.innerHTML = `<section>${historicList}</section>`;
+}
+
+function updateCurrentCity() {
+  let cityTimeZone = moment.tz.guess();
+  let cityListElem = document.querySelector(".current-city-time");
+  updateTimeSs(cityTimeZone, cityListElem);
+}
+
 function updateCity(event) {
   let cityTimeZone = event.target.value;
   let cityListElem = document.querySelector(".chosen-city-time");
+  updateTimeMm(cityTimeZone, cityListElem);
+  updateHistoric(cityTimeZone);
+}
 
-  updateTime(cityTimeZone, cityListElem);
+function updateWorldList() {
+  let tokyoElem = document.querySelector("#tokyo");
+  let tokyoTz = "Asia/Tokyo";
+  updateTimeMm(tokyoTz, tokyoElem);
+
+  let mexicoElem = document.querySelector("#mexico");
+  let mexicoTz = "America/Cancun";
+  updateTimeMm(mexicoTz, mexicoElem);
+
+  let melbourneElem = document.querySelector("#melbourne");
+  let melbourneTz = "Australia/Melbourne";
+  updateTimeMm(melbourneTz, melbourneElem);
+
+  let saopauloElem = document.querySelector("#saopaulo");
+  let saopauloTz = "America/Sao_Paulo";
+  updateTimeMm(saopauloTz, saopauloElem);
 }
 
 updateWorldList();
-updateCurrentTime();
+updateCurrentCity();
 setInterval(updateWorldList, 1000);
-setInterval(updateCurrentTime, 1000);
+setInterval(updateCurrentCity, 1000);
 
 let citiesSelectElem = document.querySelector("#city-select");
-
 citiesSelectElem.addEventListener("change", updateCity);
+
+let historicList = "";
